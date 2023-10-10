@@ -2,7 +2,6 @@
 export function renderCard(obj) {
     const $card = document.createElement('div'),
         $cardTop = document.createElement('div'),
-        $cardCenter = document.createElement('div'),
         $cardBottom = document.createElement('div'),
         $cardBox = document.createElement('div'),
         $cardDate = document.createElement('p'),
@@ -20,16 +19,16 @@ export function renderCard(obj) {
 
     $cardIcon.src = obj.logo;
     $cardIcon.alt = 'Логотип конференции';
-    $cardIcon.classList.add('card__icon');
+    $cardIcon.classList.add('card__icon');  
+
+    $cardTop.append($cardDate, $cardIcon);
+    $cardTop.classList.add('card__top');
 
     $cardTitle.textContent = obj.name;
     $cardTitle.classList.add('card__title');    
 
     $cardDescr.textContent = obj.brief;
-    $cardDescr.classList.add('card__descr');    
-
-    $cardTop.append($cardDate, $cardIcon);
-    $cardTop.classList.add('card__top');
+    $cardDescr.classList.add('card__descr');  
 
     $cardLocation.textContent = obj.location;
     $cardLocation.classList.add('card__location');
@@ -37,7 +36,10 @@ export function renderCard(obj) {
     $cardLink.textContent = obj.uri;
     $cardLink.href = obj.uri;
     $cardLink.target = '_blank';
-    $cardLink.classList.add('card__link');    
+    $cardLink.classList.add('card__link');  
+    
+    $cardBox.append($cardLocation, $cardLink);
+    $cardBox.classList.add('card__box');
 
     $cardBtn.textContent = 'Купить билет';
     $cardBtn.classList.add('card__btn');
@@ -45,19 +47,16 @@ export function renderCard(obj) {
     $cardMore.textContent = 'Подробнее';
     $cardMore.href = '#';
     $cardMore.target = '_blank';
-    $cardMore.classList.add('card__more');
-
-    $cardBox.append($cardLocation, $cardLink);
-    $cardBox.classList.add('card__box');
+    $cardMore.classList.add('card__more');    
 
     $cardBtns.append($cardBtn, $cardMore);
     $cardBtns.classList.add('card__btns');    
     
-    $cardBottom.append($cardBox, $cardBtns);
+    $cardBottom.append($cardDescr, $cardBox, $cardBtns);
     $cardBottom.classList.add('card__bottom');
 
     $card.classList.add('card');
-    $card.append($cardTop, $cardTitle, $cardDescr, $cardBottom);
+    $card.append($cardTop, $cardTitle,  $cardBottom);
 
     return $card;
 }
