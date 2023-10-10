@@ -1,0 +1,15 @@
+@media (max-width: 1480px) {
+    .container {
+        max-width: 1450px;
+    }
+    /* .conferences__list {
+        grid-template-columns: repeat(3, 1fr);
+    } */
+}
+
+/* @media (max-width: 768px) {
+        width: 90%;
+    }
+    @media (max-width: 630px) {
+        padding: 60px 16px 30px 16px;
+    } */
